@@ -14,3 +14,8 @@ class MainTest {
 	}
 
 }
+
+class OpenPassword {
+	@Test
+	int secretPassword = 123456;
+}
