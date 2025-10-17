@@ -1,0 +1,26 @@
+name: Check for Sensitive Data with TruffleHog
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  check-secrets:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install truffleHog
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-pip
+          pip3 install truffleHog
+
+      - name: Run truffleHog to scan for secrets
+        run: trufflehog --regex --entropy=True https://github.com/${{ github.repository }}
