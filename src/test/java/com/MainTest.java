@@ -15,7 +15,6 @@ class MainTest {
 
 }
 
-// class OpenPassword {
-// 	@Test
-// 	int secretPassword = 123456;
-// }
+class OpenPassword {
+	int secretPassword = 123456;
+}
